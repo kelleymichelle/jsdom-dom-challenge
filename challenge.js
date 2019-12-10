@@ -23,8 +23,20 @@ document.addEventListener('DOMContentLoaded', function() {
     const comment = event.target["0"].form["0"].form["0"].nextSibling.previousElementSibling.value
     addComment(comment);
   })
-  
+  const likeBtn = document.getElementById('heart')
+  likeBtn.addEventListener('click', function() {
+    addLikes();
+  })
 });
+
+function addLikes() {
+  const counterNum = document.getElementById('counter').innerText
+  console.log("liked!", counterNum)
+  listDiv = document.getElementById('list')
+  const p = document.createElement('p')
+  p.innerText = `${counterNum} has been liked!`
+  listDiv.appendChild(p)
+}
 
 function addComment(comment) {
   listDiv = document.getElementById('list')
